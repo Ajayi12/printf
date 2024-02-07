@@ -4,13 +4,13 @@
  * @format: const char value of the parameter
  * Return: the length of the string
  */
-int print_str(va_list arg)
+int print_str(va_list args)
 {
 	int i, len;
 	char *str;
 
 	len = 0;
-	str = va_arg(arg, char *);
+	str = va_arg(args, char *);
 	if (str == NULL)
 	{
 		str = "(null)";
