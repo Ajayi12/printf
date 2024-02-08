@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_char - function that print character value
- * @args: argument to the function 
+ * @args: argument to the function
  * Return: Always 0 (success)
  *
  */

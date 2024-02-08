@@ -1,5 +1,6 @@
 #include "main.h"
-/** _printf - function that behave like printf
+/**
+ * _printf - function that behave like printf
  * @format: argument to the parameter
  * Return: Always 0 (success)
  */
@@ -9,13 +10,14 @@ int _printf(const char *format, ...)
 	int count, i;
 	char ch;
 
+	count = 0;
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
 			format++;
-			switch(format[i])
+			switch (format[i])
 			{
 				case 's':
 					count = count + print_str(args);
@@ -28,11 +30,15 @@ int _printf(const char *format, ...)
 					write(1, &ch, 1);
 					count = count + 1;
 					break;
+				case 'd':
+				case 'i':
+					count = count + print_int(args);
+					break;
 			}
 		}
 		else
 		{
-			write(1, &format[i], 1);
+			_putchar(format[i]);
 			count++;
 		}
 	}
