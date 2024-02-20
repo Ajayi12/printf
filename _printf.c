@@ -8,10 +8,14 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int count, i;
-	char ch;
+	char ch, str;
 
 	count = 0;
 	va_start(args, format);
+	if (args == NULL)
+	{
+		return (NULL);
+	}
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -33,6 +37,12 @@ int _printf(const char *format, ...)
 				case 'd':
 				case 'i':
 					count = count + print_int(args);
+					break;
+				default:
+					str = '%';
+					write(1, &str, 1);
+					write(1, &format[i], 1);
+					count = count + 2;
 					break;
 			}
 		}

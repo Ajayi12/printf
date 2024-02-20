@@ -18,11 +18,13 @@ int print_str(va_list args)
 		{
 			len++;
 		}
-		write(1, str, len);
 	}
-	for (i = 0; str[i] != '\0'; i++)
+	else
 	{
-		len++;
+		for (i = 0; str[i] != '\0'; i++)
+		{
+			len++;
+		}
 	}
 	write(1, str, len);
 	return (len);
