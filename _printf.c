@@ -12,10 +12,6 @@ int _printf(const char *format, ...)
 
 	count = 0;
 	va_start(args, format);
-	if (format == '%')
-	{
-		write(1, &format, 1);
-	}
 	if (format == NULL)
 	{
 		return 0;
