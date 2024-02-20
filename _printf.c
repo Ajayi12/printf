@@ -12,9 +12,13 @@ int _printf(const char *format, ...)
 
 	count = 0;
 	va_start(args, format);
-	if (args == NULL)
+	if (format == '%')
 	{
-		return (0);
+		write(1, &format, 1);
+	}
+	if (format == NULL)
+	{
+		return 0;
 	}
 	for (i = 0; format[i] != '\0'; i++)
 	{
